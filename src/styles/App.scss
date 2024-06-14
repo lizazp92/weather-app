@@ -1,0 +1,32 @@
+@use "variables" as *;
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+.App {
+  &-dark-theme {
+    background-color: $app-dark-mode-bg;
+    color: $primary-color;
+  }
+  &-btn-theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .ant-switch {
+      width: 120px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      padding-top: 5px; //toggle text to go down
+    }
+    .ant-switch-handle {
+      top: 8px; //round toggle to go down
+    }
+  }
+}

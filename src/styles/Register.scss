@@ -1,0 +1,23 @@
+@use "variables" as *;
+
+.Register {
+  width: 70vw;
+  position: absolute;
+  top: 45%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  .form-label {
+    width: 200px;
+  }
+  &-input {
+    max-width: 300px;
+    &-dark-mode {
+      background-color: $input-bg-dark-mode;
+      color: $primary-color;
+      &:focus {
+        background-color: $input-bg-dark-mode;
+        color: $primary-color;
+      }
+    }
+  }
+}

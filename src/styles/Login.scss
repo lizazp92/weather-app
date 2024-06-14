@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.Login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &-input {
+    min-width: 400px;
+    &-dark-mode {
+      background-color: $input-bg-dark-mode;
+      color: $primary-color;
+      &:focus {
+        background-color: $input-bg-dark-mode;
+        color: $primary-color;
+      }
+    }
+  }
+}

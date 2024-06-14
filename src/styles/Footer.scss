@@ -1,0 +1,22 @@
+@use "variables" as *;
+@import "./index.scss";
+
+.Footer {
+  @extend .d-flex;
+  @extend .justify-content-between;
+  @extend .align-items-center;
+  @extend .align-content-center;
+  width: 100%;
+  height: 3.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 1rem;
+  background-color: $footer-bg;
+  color: $primary-color;
+  z-index: 2;
+  &-logo {
+    height: 50px;
+    width: 50px;
+  }
+}

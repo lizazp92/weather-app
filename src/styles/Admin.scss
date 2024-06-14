@@ -1,0 +1,16 @@
+@use "variables" as *;
+
+.Admin {
+  &-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 1.5rem 0 0 0;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    color: $header-color;
+    &-dark-mode {
+      color: $admin-page-dark-mode;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@use "variables" as *;
+@import "./index.scss";
+
+.Main {
+  @extend .d-flex;
+  @extend .align-items-center;
+  @extend .flex-column;
+
+  &-form-container {
+    width: 45vw;
+    height: 55px;
+    background-color: $primary-color;
+    position: relative;
+
+    .Main-greetForm {
+      &-input-text {
+        height: 100%;
+        width: 75%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-left: 5%;
+        font-size: 2rem;
+        letter-spacing: 2.8px;
+        color: $input-color;
+        border: none;
+        &:focus {
+          outline: none;
+          background-color: $input-focus;
+        }
+        &-dark-mode {
+          background-color: $input-bg-dark-mode;
+          color: $primary-color;
+          &:focus {
+            background-color: $input-bg-dark-mode;
+            color: $primary-color;
+          }
+        }
+      }
+
+      &-btn {
+        @extend .rounded-0;
+        font-size: 2rem;
+        height: 100%;
+        width: 25%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        &-icon {
+          position: relative;
+          top: -7px;
+          left: 8px;
+          padding-right: 0.9rem;
+        }
+      }
+    }
+  }
+}
