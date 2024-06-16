@@ -4,7 +4,7 @@ function Footer() {
   const reactHref = "https://react.dev/learn";
   return (
     <footer className="Footer">
-      <p>2024 Demo React App.</p>
+      <p>2024 React Weather App</p>
       <a href={reactHref}>
         <img src={logo192} className="Footer-logo" alt="logo" />
       </a>

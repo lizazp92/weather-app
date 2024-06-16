@@ -1,50 +1,56 @@
+import React, { useRef, useContext } from "react";
 import { ThemeContext } from "../DarkTheme";
 import { IoIosArrowForward } from "react-icons/io";
-import React, { useRef } from "react";
 import Button from "react-bootstrap/Button";
 import "../../styles/Main.scss";
 
-function Main() {
-  const { darkMode } = React.useContext(ThemeContext);
+function Main({ setCurrentCity }) {
+  //accessing darkMode through ThemeContext
+  const { darkMode } = useContext(ThemeContext);
+  // create reference to the input
   const inputRef = useRef();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("Hello, " + inputRef.current.value + "!");
-    console.log("The form has been submitted.");
-    event.target.reset();
+    // on form submit get the current value from the input using ref
+    const currentCity = inputRef.current.value;
+    setCurrentCity(currentCity);
+    // Clear input field after submit
+    inputRef.current.value = "";
   };
+
   return (
-    <main className="Main">
+    <div className={`Main ${darkMode ? "dark-mode" : ""}`}>
       <div className="Main-form-container">
         <form
-          className="Main-greetForm"
-          id="Main-greetForm"
+          className="Main-chooseCityForm"
+          id="Main-chooseCityForm"
           onSubmit={handleSubmit}
         >
-          <label for="addName"></label>
+          <label htmlFor="chooseCity"></label>
           <input
             type="text"
-            placeholder="Enter your name"
-            id="addName"
-            name="addName"
+            placeholder="Choose a city"
+            id="chooseCity"
+            name="chooseCity"
             ref={inputRef}
-            className={`Main-greetForm-input-text ${
-              darkMode ? "Main-greetForm-input-text-dark-mode" : ""
+            className={`Main-chooseCityForm-input-text ${
+              darkMode ? "Main-chooseCityForm-input-text-dark-mode" : ""
             }`}
           />
           <Button
             variant="success"
-            id="addNameBtn"
+            id="chooseCityBtn"
             type="submit"
-            className="Main-greetForm-btn"
+            className="Main-chooseCityForm-btn"
           >
-            <span className="Main-greetForm-btn-icon">
+            <span className="Main-chooseCityForm-btn-icon">
               <IoIosArrowForward />
             </span>
           </Button>
         </form>
       </div>
-    </main>
+    </div>
   );
 }
 
