@@ -11,7 +11,13 @@
     height: 55px;
     background-color: $primary-color;
     position: relative;
-
+    @media (max-width: 768px) {
+      width: 80vw;
+      height: 45px;
+    }
+    @media (max-width: 480px) {
+      width: 90vw;
+    }
     .Main-chooseCityForm {
       &-input-text {
         height: 100%;
@@ -36,6 +42,13 @@
             color: $primary-color;
           }
         }
+        @media (max-width: 768px) {
+          font-size: 1.5rem;
+        }
+        @media (max-width: 480px) {
+          font-size: 1.2rem;
+          padding-left: 4%;
+        }
       }
 
       &-btn {
@@ -46,11 +59,29 @@
         position: absolute;
         right: 0;
         top: 0;
+        @media (max-width: 768px) {
+          font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 1.2rem;
+        }
+
         &-icon {
           position: relative;
           top: -7px;
           left: 8px;
           padding-right: 0.9rem;
+
+          @media (max-width: 768px) {
+            top: -5px;
+            left: 6px;
+          }
+
+          @media (max-width: 480px) {
+            top: -3px;
+            left: 4px;
+          }
         }
       }
     }
