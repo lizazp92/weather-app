@@ -59,6 +59,33 @@ function WeatherList({ currentCity }) {
     setFilter(filterType);
   };
 
+  // Helper function to generate weather information based on the filter
+  const generateWeatherInfo = () => {
+    if (filter === "current") {
+      return <WeatherInfo data={weatherData.current} darkMode={darkMode} />;
+    }
+
+    if (filter === "3-hour") {
+      return weatherData.hourly
+        .slice(0, 8)
+        .map((item, index) => (
+          <WeatherInfo key={index} data={item} darkMode={darkMode} />
+        ));
+    }
+
+    if (filter === "5-day") {
+      // Select one weather item per day (e.g., every 24 hours)
+      return weatherData.hourly
+        .filter((weatherItem, index) => index % 8 === 0)
+        .slice(0, 5)
+        .map((weatherItem, index) => (
+          <WeatherInfo key={index} data={weatherItem} darkMode={darkMode} />
+        ));
+    }
+
+    return null;
+  };
+
   return (
     <div>
       {/* hide buttons if there is an error */}
@@ -81,24 +108,7 @@ function WeatherList({ currentCity }) {
       {/* handling alert message from bootstrap */}
       <AlertMessage errorAlertMessage={error} />
       <ul className="d-flex flex-wrap justify-content-center list-unstyled gap-4 m-0 WeatherList">
-        {weatherData && filter === "current" && (
-          <WeatherInfo data={weatherData.current} darkMode={darkMode} />
-        )}
-        {weatherData &&
-          filter === "3-hour" &&
-          weatherData.hourly
-            .slice(0, 10)
-            .map((item, index) => (
-              <WeatherInfo key={index} data={item} darkMode={darkMode} />
-            ))}
-        {weatherData &&
-          filter === "5-day" &&
-          weatherData.hourly
-            .filter((weatherItem, index) => index % 8 === 0) // 24hours/3=8
-            .slice(0, 5)
-            .map((weatherItem, index) => (
-              <WeatherInfo key={index} data={weatherItem} darkMode={darkMode} />
-            ))}
+        {generateWeatherInfo()}
       </ul>
     </div>
   );
