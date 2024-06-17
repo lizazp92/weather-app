@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeContext } from "../DarkTheme";
+import { ThemeContext } from "../../DarkTheme";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";

@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeContext } from "../DarkTheme";
+import { ThemeContext } from "../../DarkTheme";
 import "../../styles/Header.scss";
 
 function Header() {

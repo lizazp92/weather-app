@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from "react";
-import { ThemeContext } from "../DarkTheme";
+import { ThemeContext } from "../../DarkTheme";
 import { IoIosArrowForward } from "react-icons/io";
 import Button from "react-bootstrap/Button";
 import "../../styles/Main.scss";

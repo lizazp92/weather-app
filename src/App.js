@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ThemeContext, ThemeProvider } from "./components/DarkTheme";
+import { ThemeContext, ThemeProvider } from "./DarkTheme";
 import { Space, Switch } from "antd";
 import Landing from "./components/landing/Landing";
 import "./styles/App.scss";
