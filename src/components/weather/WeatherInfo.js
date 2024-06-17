@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
 import { ThemeContext } from "../../DarkTheme";
@@ -12,7 +12,9 @@ function WeatherInfo({ data }) {
 
   return (
     <Card
-      className={`WeatherInfo-card ${darkMode ? "WeatherInfo-dark-theme" : ""}`}
+      className={`WeatherInfo-card ${
+        darkMode ? "WeatherInfo-card-dark-theme" : ""
+      }`}
     >
       {/* <Card.Body>
         <Card.Title className="WeatherInfo-title">{weather[0].main}</Card.Title>
@@ -24,20 +26,30 @@ function WeatherInfo({ data }) {
         alt="weather icon"
       />
 
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className={darkMode ? "WeatherInfo-dark-theme" : ""}>
+      <ListGroup className="list-group-flush mb-3">
+        <ListGroup.Item
+          className={darkMode ? "list-group-item-dark-theme" : ""}
+        >
           Temp: {Math.round(main.temp)} °C
         </ListGroup.Item>
-        <ListGroup.Item className={darkMode ? "WeatherInfo-dark-theme" : ""}>
+        <ListGroup.Item
+          className={darkMode ? "list-group-item-dark-theme" : ""}
+        >
           Description: {weather[0].main}
         </ListGroup.Item>
-        <ListGroup.Item className={darkMode ? "WeatherInfo-dark-theme" : ""}>
+        <ListGroup.Item
+          className={darkMode ? "list-group-item-dark-theme" : ""}
+        >
           Humidity: {main.humidity} %
         </ListGroup.Item>
-        <ListGroup.Item className={darkMode ? "WeatherInfo-dark-theme" : ""}>
+        <ListGroup.Item
+          className={darkMode ? "list-group-item-dark-theme" : ""}
+        >
           Wind Speed: {Math.round(wind.speed)} m/s
         </ListGroup.Item>
-        <ListGroup.Item className={darkMode ? "WeatherInfo-dark-theme" : ""}>
+        <ListGroup.Item
+          className={darkMode ? "list-group-item-dark-theme" : ""}
+        >
           Cloudiness: {clouds.all} %
         </ListGroup.Item>
       </ListGroup>

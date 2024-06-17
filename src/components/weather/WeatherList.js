@@ -67,14 +67,14 @@ function WeatherList({ currentCity }) {
       case "3-hour":
         return (
           weatherData.hourly
-            //each element represents a 3-hour interval. we are taking 8 of them to cover 24h
+            //each element is a 3-h interval. we are taking 8 of them to cover 24h
             .slice(0, 8)
             .map((item, index) => (
               <WeatherInfo key={index} data={item} darkMode={darkMode} />
             ))
         );
       case "5-day":
-        //24 hours / 3 hours = 8 intervals. we select every 8th data point to show 1 card per day
+        //24h / 3h = 8 intervals. we select every 8th data point to show 1 card per day
         return (
           weatherData.hourly
             .filter((weatherItem, index) => index % 8 === 0)
