@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ThemeContext } from "../../DarkTheme";
 import WeatherInfo from "./WeatherInfo";
 import DownloadWeatherData from "./DownloadWeatherData";
-import { apiKey } from "./API";
+
 import { Button } from "react-bootstrap";
 import AlertMessage from "./AlertMessage";
 import "../../styles/WeatherList.scss";
@@ -16,6 +16,9 @@ function WeatherList({ currentCity }) {
   const [weatherData, setWeatherData] = useState(null);
   // filter for current, 3-hour, 5-day
   const [filter, setFilter] = useState("current");
+
+  // api key from the environment variable from vercel
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   // fetches weather data when currentCity changes
   useEffect(() => {
