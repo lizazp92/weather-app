@@ -1,13 +1,9 @@
 .Landing {
   @media (max-width: 768px) {
-    .Landing-content {
-      margin-top: 5rem;
-    }
+    margin-top: 5rem;
   }
 
   @media (max-width: 480px) {
-    .Landing-content {
-      margin-top: 8rem;
-    }
+    margin-top: 6rem;
   }
 }
