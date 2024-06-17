@@ -59,10 +59,10 @@ function DownloadWeatherData({ currentCity, filter, weatherData }) {
 
   const downloadFile = (dataToDownload) => {
     const element = document.createElement("a");
-    const file = new Blob([dataToDownload], {
+    const fileToDownload = new Blob([dataToDownload], {
       type: "text/plain",
     });
-    element.href = URL.createObjectURL(file);
+    element.href = URL.createObjectURL(fileToDownload);
     element.download = "Weather-data.txt";
     document.body.appendChild(element);
     element.click();
