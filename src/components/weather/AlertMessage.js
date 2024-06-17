@@ -6,10 +6,9 @@ function AlertMessage({ errorAlertMessage }) {
     return (
       <Alert
         variant="danger"
-        // className="pt - 2"
         style={{ width: "40%", margin: "1rem auto", textAlign: "center" }}
       >
-        Please provide correct city name
+        Please provide correct city
       </Alert>
     );
   }

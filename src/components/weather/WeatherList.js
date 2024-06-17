@@ -88,28 +88,31 @@ function WeatherList({ currentCity }) {
 
   return (
     <div>
-      {/* hide buttons if there is an error */}
-      <div
-        id="buttons"
-        className={`d-flex flex-wrap justify-content-center gap-4 m-4 ${
-          error ? "d-none" : ""
-        }`}
-      >
-        <Button onClick={() => handleFilterClick("current")}>
-          Weather now
-        </Button>
-        <Button onClick={() => handleFilterClick("3-hour")}>
-          3-hour forecast
-        </Button>
-        <Button onClick={() => handleFilterClick("5-day")}>
-          5 days forecast
-        </Button>
-      </div>
-      {/* handling alert message from bootstrap */}
       <AlertMessage errorAlertMessage={error} />
-      <ul className="d-flex flex-wrap justify-content-center list-unstyled gap-4 m-0 WeatherList">
-        {generateWeatherInfo()}
-      </ul>
+      {/* I had a bug that if i type incorrect city name, i saw buttons rendering for split seconds
+      and after that alert appeared instead of buttons. so i added conditional rendering on 
+      if there are no errors and data is fetched correctly */}
+      {weatherData && !error && (
+        <>
+          <div
+            id="buttons"
+            className="d-flex flex-wrap justify-content-center gap-4 m-4"
+          >
+            <Button onClick={() => handleFilterClick("current")}>
+              Weather now
+            </Button>
+            <Button onClick={() => handleFilterClick("3-hour")}>
+              3-hour forecast
+            </Button>
+            <Button onClick={() => handleFilterClick("5-day")}>
+              5 days forecast
+            </Button>
+          </div>
+          <ul className="d-flex flex-wrap justify-content-center list-unstyled gap-4 m-0 WeatherList">
+            {generateWeatherInfo()}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
