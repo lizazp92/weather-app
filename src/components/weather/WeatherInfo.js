@@ -7,8 +7,9 @@ import "../../styles/WeatherInfo.scss";
 
 function WeatherInfo({ data }) {
   const { darkMode } = React.useContext(ThemeContext);
-
-  const { weather, main, wind, clouds } = data;
+  const { weather, main, wind, clouds, dt_txt } = data;
+  const date = dt_txt ? new Date(dt_txt) : new Date();
+  const formattedDate = date.toLocaleString();
 
   return (
     <Card
@@ -16,9 +17,9 @@ function WeatherInfo({ data }) {
         darkMode ? "WeatherInfo-card-dark-theme" : ""
       }`}
     >
-      {/* <Card.Body>
-        <Card.Title className="WeatherInfo-title">{weather[0].main}</Card.Title>
-      </Card.Body> */}
+      <Card.Body>
+        <Card.Title className="WeatherInfo-title">{formattedDate}</Card.Title>
+      </Card.Body>
       <Card.Img
         variant="top"
         src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}

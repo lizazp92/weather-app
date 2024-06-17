@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ThemeContext } from "../../DarkTheme";
 import WeatherInfo from "./WeatherInfo";
-import Button from "react-bootstrap/Button";
+import DownloadWeatherData from "./DownloadWeatherData";
 import { apiKey } from "./API";
+import { Button } from "react-bootstrap";
 import AlertMessage from "./AlertMessage";
 import "../../styles/WeatherList.scss";
 
@@ -59,7 +60,7 @@ function WeatherList({ currentCity }) {
     setFilter(filterType);
   };
 
-  // Helper function to generate weather information based on the filter
+  // to generate weather information based on the filter
   const generateWeatherInfo = () => {
     switch (filter) {
       case "current":
@@ -89,6 +90,15 @@ function WeatherList({ currentCity }) {
     }
   };
 
+  const handleDownload = () => {
+    if (weatherData) {
+      DownloadWeatherData({
+        currentCity,
+        filter,
+        weatherData,
+      }).handleDownload();
+    }
+  };
   return (
     <div>
       <AlertMessage errorAlertMessage={error} />
@@ -96,25 +106,42 @@ function WeatherList({ currentCity }) {
       and after that alert appeared instead of buttons. so i added conditional rendering on 
       if there are no errors and data is fetched correctly */}
       {weatherData && !error && (
-        <>
+        <div>
           <div
             id="buttons"
             className="d-flex flex-wrap justify-content-center gap-4 m-4"
           >
-            <Button onClick={() => handleFilterClick("current")}>
+            <Button
+              variant="success"
+              onClick={() => handleFilterClick("current")}
+            >
               Weather now
             </Button>
-            <Button onClick={() => handleFilterClick("3-hour")}>
+            <Button
+              variant="success"
+              onClick={() => handleFilterClick("3-hour")}
+            >
               3-hour forecast
             </Button>
-            <Button onClick={() => handleFilterClick("5-day")}>
+            <Button
+              variant="success"
+              onClick={() => handleFilterClick("5-day")}
+            >
               5 days forecast
             </Button>
           </div>
+          <h3 className="d-flex justify-content-center mt-1 pb-3">
+            {currentCity} city:
+          </h3>
           <ul className="d-flex flex-wrap justify-content-center list-unstyled gap-4 m-0 WeatherList">
             {generateWeatherInfo()}
           </ul>
-        </>
+          <div className="d-flex justify-content-center mt-4 Download-btn">
+            <Button variant="success" onClick={handleDownload}>
+              Download
+            </Button>
+          </div>
+        </div>
       )}
     </div>
   );
