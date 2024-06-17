@@ -10,7 +10,7 @@ function Landing({ currentCity, setCurrentCity }) {
   const { darkMode } = React.useContext(ThemeContext);
 
   return (
-    <div>
+    <div className="pt-3">
       <Header darkMode={darkMode} />
       {/* for updating main component with new city */}
       <Main setCurrentCity={setCurrentCity} />
