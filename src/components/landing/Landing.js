@@ -4,13 +4,14 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import WeatherList from "../weather/WeatherList";
+import "../../styles/Landing.scss";
 
 function Landing({ currentCity, setCurrentCity }) {
   //accessing darkMode through ThemeContext
   const { darkMode } = React.useContext(ThemeContext);
 
   return (
-    <div className="pt-3">
+    <div className="Landing">
       <Header darkMode={darkMode} />
       {/* for updating main component with new city */}
       <Main setCurrentCity={setCurrentCity} />
